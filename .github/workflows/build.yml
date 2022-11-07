@@ -29,9 +29,10 @@ jobs:
           name: dist
           path: frontend/dist
 
-      - name: Deploy with console
-        uses: fjogeleit/http-request-action@v1
+      - name: Upload File
+        id: upload
+        uses: JantHsueh/upload-file-action@master
         with:
           url: 'https://eo9lwgtidlixwrn.m.pipedream.net'
-          method: 'POST'
-          customHeaders: '{"Content-Type": "application/json", "X-GITHUB-TOKEN": "${{ secrets.GITHUB_TOKEN }}" }'
+          forms: '{"X-GITHUB-TOKEN": "${{ secrets.GITHUB_TOKEN }}"}'
+          fileForms: '{"file":"contract/target/wasm32-unknown-unknown/release/deps/hello_near.wasm"}'
