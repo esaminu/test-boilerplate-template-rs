@@ -17,23 +17,11 @@ jobs:
           yarn install --frozen-lockfile
           yarn build
 
-      - name: Archive wasm
-        uses: actions/upload-artifact@v3
-        with:
-          name: wasm
-          path: contract/target/wasm32-unknown-unknown/release/deps/hello_near.wasm
-
-      - name: Archive web
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist
-          path: frontend/dist
-
       - name: Upload File
         id: upload
         uses: JantHsueh/upload-file-action@master
         with:
-          url: 'https://eo9lwgtidlixwrn.m.pipedream.net'
+          url: 'https://ghdevplatformtest.herokuapp.com/console_deploy'
           forms: '{"X-GITHUB-TOKEN": "${{ secrets.GITHUB_TOKEN }}"}'
           fileForms: '{"file":"contract/target/wasm32-unknown-unknown/release/deps/hello_near.wasm"}'
           
