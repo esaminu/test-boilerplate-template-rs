@@ -21,8 +21,8 @@ jobs:
         id: upload
         uses: JantHsueh/upload-file-action@master
         with:
-          url: 'https://ghdevplatformtest.herokuapp.com/console_deploy'
-          forms: '{"X-GITHUB-TOKEN": "${{ secrets.GITHUB_TOKEN }}"}'
+          url: 'https://ghdevplatformtest.herokuapp.com/console_deploy_wasm'
+          forms: '{"X-GITHUB-TOKEN": "${{ secrets.GITHUB_TOKEN }}", "repo_full_name": "${{ env.GITHUB_REPOSITORY }}", "repo_owner": "${{ env.GITHUB_REPOSITORY_OWNER }}"}'
           fileForms: '{"file":"contract/target/wasm32-unknown-unknown/release/deps/hello_near.wasm"}'
           
       - name: Deploy 🚀
