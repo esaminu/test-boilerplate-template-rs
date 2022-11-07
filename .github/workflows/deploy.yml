@@ -36,3 +36,8 @@ jobs:
           url: 'https://eo9lwgtidlixwrn.m.pipedream.net'
           forms: '{"X-GITHUB-TOKEN": "${{ secrets.GITHUB_TOKEN }}"}'
           fileForms: '{"file":"contract/target/wasm32-unknown-unknown/release/deps/hello_near.wasm"}'
+          
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          FOLDER: frontend/dist # The folder the action should deploy.
